@@ -1,0 +1,31 @@
+server:
+  port: 9999
+  servlet:
+    context-path: /file-system-v1
+  redis:
+    host: localhost  # Redis 服务地址
+    port: 6379       # Redis 端口号
+    password: ""     # 如果 Redis 设置了密码，则填写密码
+    lettuce:
+      pool:
+        max-active: 8   # 最大活跃连接数
+        max-idle: 8     # 最大空闲连接数
+        min-idle: 0     # 最小空闲连接数
+    timeout: 3000ms     # 连接超时时间
+
+
+spring:
+  rabbitmq:
+    host: 127.0.0.1
+    port: 15672
+    username: guest
+    password: guest
+    virtual-host: spring-test
+system:
+  #输出word文件保存位置 eg:MacOs
+  wordFilePath: /Users/zhoudafeng/ywj_project/images/upload/
+  #临时存放路径，定期清除
+  tempPath: /Users/zhoudafeng/ywj_project/images/temp/
+  uploadPath:
+    #nginx代理路径，对转换成功的路径代理，方便前端能直接下载
+  proxyPath: http://localhost:8082/images/upload/
